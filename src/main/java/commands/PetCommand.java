@@ -12,18 +12,15 @@ public class PetCommand extends ListenerAdapter {
      public void onMessageReceived(MessageReceivedEvent e){
          if(e.getAuthor().isBot()) return;
          String link = "https://api.popcat.xyz/pet?image=";
-         String[] message = e.getMessage().getContentRaw().split(" ");
+         String message = e.getMessage().getContentRaw();
          String avatarLink = "";
-         String member1 = message[1];
 
-         if(message[0].equalsIgnoreCase("$pet")){
+         if(message.equalsIgnoreCase("$pet")){
              avatarLink = e.getAuthor().getAvatarUrl();
              EmbedBuilder eb = new EmbedBuilder();
              String finalLink = link + avatarLink;
              eb.setImage(finalLink);
              e.getChannel().sendMessageEmbeds(eb.build()).queue();
-
-             
          }
      }
 }

@@ -32,6 +32,7 @@ public class Ponzu {
         api.addEventListener(new JokeCommand());
         api.addEventListener(new FoxCommand());
         api.addEventListener(new PetCommand());
+        api.addEventListener(new DrakeMeme());
 
     }
 }
