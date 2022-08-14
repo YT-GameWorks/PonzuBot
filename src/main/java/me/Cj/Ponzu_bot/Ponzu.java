@@ -29,9 +29,8 @@ public class Ponzu {
         api.addEventListener(new AnimeCommand());
         api.addEventListener(new CarCommand());
         api.addEventListener(new InviteCommand());
-        api.addEventListener(new AhoyCommand());
-        api.addEventListener(new FactsCommand());
         api.addEventListener(new JokeCommand());
+        api.addEventListener(new FoxCommand());
 
     }
 }
