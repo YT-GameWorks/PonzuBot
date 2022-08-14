@@ -45,3 +45,6 @@ public class FoxCommand extends ListenerAdapter {
 
     }
 }
+
+
+//https://fungenerators.com/random/facts/animal/fox
