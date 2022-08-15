@@ -2,6 +2,7 @@ package me.Cj.Ponzu_bot;
 
 import commands.*;
 import events.EnteredServer;
+import events.EnteringNewServer;
 import events.HelloEvent;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -29,10 +30,11 @@ public class Ponzu {
         api.addEventListener(new AnimeCommand());
         api.addEventListener(new CarCommand());
         api.addEventListener(new InviteCommand());
-        api.addEventListener(new JokeCommand());
         api.addEventListener(new FoxCommand());
         api.addEventListener(new PetCommand());
         api.addEventListener(new DrakeMeme());
+        api.addEventListener(new gettingAvatarUrl());
+        api.addEventListener(new EnteringNewServer());
 
     }
 }
