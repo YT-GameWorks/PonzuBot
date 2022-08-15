@@ -4,8 +4,8 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.awt.*;
@@ -21,39 +21,35 @@ public class CarCommand extends ListenerAdapter {
 
         if (event.getAuthor().isBot()) return;
         String lines = "";
-        JSONParser parser = new JSONParser();
         String image = "", title = "";
 
         if (event.getMessage().getContentRaw().equalsIgnoreCase("$car")) {
-            try {
-                URL carURL = new URL("https://api.popcat.xyz/car");
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(carURL.openConnection().getInputStream()));
+            try{
+                URL url = new URL("https://api.popcat.xyz/car");
+                Scanner scanner = new Scanner(url.openStream());
 
-                while ((lines = bufferedReader.readLine()) != null) {
-                    JSONArray array = new JSONArray();
-                    array.add(parser.parse(lines));
-
-                    event.getChannel().sendMessage(lines).queue();
-
-                    for (Object o : array) {
-                        org.json.simple.JSONObject jsonObject = (JSONObject) o;
-
-                        image = (String) jsonObject.get("image");
-                        title = (String) jsonObject.get("title");
-                    }
+                while(scanner.hasNext()){
+                    lines += scanner.nextLine();
                 }
-
-                bufferedReader.close();
-
+                scanner.close();
                 event.getMessage().delete().queue();
+
+                JSONObject obj = new JSONObject(lines);
+                image = obj.getString("image");
+                title = obj.getString("title");
+
                 EmbedBuilder eb = new EmbedBuilder();
                 eb.setTitle(title);
+                eb.setColor(Color.CYAN);
                 eb.setImage(image);
+
+
 
                 event.getChannel().sendMessageEmbeds(eb.build()).queue();
 
-            } catch (Exception e1) {
-                event.getChannel().sendMessage("Exception occured.").queue();
+
+            }catch (Exception e1){
+                event.getChannel().sendMessage("There was some problem. Please try again later! :)");
             }
 
 
