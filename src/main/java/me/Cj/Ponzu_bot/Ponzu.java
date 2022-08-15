@@ -35,6 +35,7 @@ public class Ponzu {
         api.addEventListener(new DrakeMeme());
         api.addEventListener(new EnteringNewServer());
         api.addEventListener(new CjCommand());
+        api.addEventListener(new KermitCommand());
 
     }
 }
