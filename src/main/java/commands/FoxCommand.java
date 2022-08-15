@@ -35,7 +35,9 @@ public class FoxCommand extends ListenerAdapter {
                eb.setColor(Color.orange);
                eb.setImage(image);
                eb.setTitle("\uD835\uDC9C \uD835\uDCBB\uD835\uDCC1\uD835\uDC5C\uD835\uDC5C\uD835\uDCBB \uD835\uDCBB\uD835\uDC5C\uD835\uDCC7 \uD835\uDCCE\uD835\uDC5C\uD835\uDCCA :)");
+               e.getMessage().delete().queue();
                e.getChannel().sendMessageEmbeds(eb.build()).queue();
+
 
            }
            catch (Exception e1){
