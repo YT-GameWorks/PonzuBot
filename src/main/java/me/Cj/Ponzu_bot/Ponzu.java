@@ -38,6 +38,8 @@ public class Ponzu {
         api.addEventListener(new KermitCommand());
         api.addEventListener(new RedditCommand());
         api.addEventListener(new MovieCommand());
+        api.addEventListener(new SongCommand());
+        api.addEventListener(new FactCommand());
 
     }
 }
