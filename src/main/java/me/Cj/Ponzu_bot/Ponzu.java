@@ -40,6 +40,7 @@ public class Ponzu {
         api.addEventListener(new MovieCommand());
         api.addEventListener(new SongCommand());
         api.addEventListener(new FactCommand());
+        api.addEventListener(new HELPCOMMANDEXPLAINER());
 
     }
 }
