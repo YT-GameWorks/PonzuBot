@@ -1,0 +1,1 @@
+worker: java -jar build/libs/Ponzu-Bot-1.0-all.jar

@@ -14,7 +14,7 @@ import javax.security.auth.login.LoginException;
 
 public class Ponzu {
     public static void main(String[] args) throws LoginException{
-        JDA api = (JDA) JDABuilder.createLight("MTAwMzI1MjUxNDgzMDk1ODY2NQ.GFHkA2.gzHL8OMxcNXi5-CaVLHcM0EGan0faH7JyU42gA", GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_INVITES)
+        JDA api = (JDA) JDABuilder.createLight(System.getenv().get("TOKEN"), GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_INVITES)
                 .setStatus(OnlineStatus.ONLINE)
                 .setActivity(Activity.listening("HIP - MAMAMOO (마마무)"))
                 .build();
