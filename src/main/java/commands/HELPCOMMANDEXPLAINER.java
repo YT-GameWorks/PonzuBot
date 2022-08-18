@@ -47,8 +47,6 @@ public class HELPCOMMANDEXPLAINER extends ListenerAdapter {
                         eb.setColor(Color.orange);
                         e.getChannel().sendMessageEmbeds(eb.build()).queue();
                     }
-//                        if(message[0].equalsIgnoreCase("$help") && message[1].equalsIgnoreCase("")){
-//
-//                        }
+
     }
 }
